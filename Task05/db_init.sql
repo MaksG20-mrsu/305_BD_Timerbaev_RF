@@ -15,7 +15,7 @@ CREATE TABLE users (
     register_date TEXT NOT NULL DEFAULT (date('now')),
     occupation    TEXT DEFAULT 'other'
 );
-CREATE INDEX idx_users_name ON users(name);
+CREATE INDEX idx_users_lastname ON users(substr(name, instr(name, ' ') + 1 ));
 
 CREATE TABLE movies (
     id    INTEGER PRIMARY KEY,
